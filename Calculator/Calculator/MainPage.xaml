@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Calculator.MainPage">
-
-    <StackLayout>
+    
+    <StackLayout Style="{DynamicResource ContainerBackgroundColor}">
     <!--Title-->
-        <Label x:Name="Title"
+        <Label x:Name="Header"
                Text="Calculator"
                HorizontalOptions="CenterAndExpand"
                FontFamily="Bugie.ttf#Bugie"
@@ -27,7 +27,7 @@
                Text="0"
                FontSize="40"
                FontFamily="GiantFont.otf#GiantFont"
-               HorizontalOptions="End"
+               HorizontalOptions="EndAndExpand"
                VerticalOptions="StartAndExpand"
                Padding="0,0,25,0">
             </Label>
