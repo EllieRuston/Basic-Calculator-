@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="PaleTurquoise" Opacity="10"
+               Padding="10" 
+               Margin="0,0,0,20"
+               HeightRequest="230">
+            
+          <StackLayout Orientation ="Vertical">
+            <Label x:Name="LblCalc"
+               FontSize="40"
+               FontFamily="GiantFont.otf#GiantFont"
+               HorizontalOptions="End"
+               VerticalOptions="StartAndExpand"
+               Padding="0,0,25,0">
+            </Label>
+            
+            <Label x:Name="LblResult"
+               Text="0"
+               FontSize="60"
+               FontFamily="GiantFont.otf#GiantFont"
+               FontAttributes="Bold"
+               HorizontalOptions="End"
+               VerticalOptions="EndAndExpand"
+               Padding="0,0,25,0">
+            </Label>
+          </StackLayout>
+        </Frame>
+<!--Row One-->
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+    
+         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button 
+                Text="C"
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                FontAttributes="Bold"
+                Padding="20"
+                x:Name="BtnClear"
+                Clicked="BtnClear_Clicked"/>
+            
+            <Button
+                Text="CE"
+                FontFamily="GiantFont.otf#GiantFont"
+                FontSize="50"
+                FontAttributes="Bold"
+                Padding="20"
+                x:Name="BtnCE"
+                Clicked="BtnCE_Clicked"/>
+                    
+            <Button 
+                Text="%"
+                FontFamily="GiantFont.otf#GiantFont"
+                FontSize="50"
+                FontAttributes="Bold"
+                x:Name="BtnPercent"
+                Clicked="BtnPercent_Clicked"/>
+
+            <Button 
+                Text="/"
+                FontFamily="GiantFont.otf#GiantFont"
+                FontSize="50"
+                FontAttributes="Bold"
+                x:Name="BtnDiv"
+                Clicked="BtnOperator_Clicked"/>
+          </StackLayout>
+ <!--row two-->
+         <StackLayout Orientation="Horizontal" HorizontalOptions="Center"> 
+           
+            <Button 
+                Text="7"
+                FontSize="50"
+                FontAttributes="Bold"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                x:Name="Btn7"
+                Clicked="BtnCommon_Clicked"/>
+
+            <Button 
+                Text="8"
+                FontSize="50"
+                FontAttributes="Bold"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                x:Name="Btn8"
+                Clicked="BtnCommon_Clicked"/>
+
+            <Button
+                Text="9"
+                FontSize="50"
+                FontAttributes="Bold"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                x:Name="Btn9"
+                Clicked="BtnCommon_Clicked"/>
+
+            <Button 
+                Text="*"
+                FontFamily="GiantFont.otf#GiantFont"
+                FontSize="50"
+                Padding="20"
+                FontAttributes="Bold"
+                Clicked="BtnOperator_Clicked"/>
+          </StackLayout>
+
+         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+<!--row Three-->
+            <Button 
+                Text="4"
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                FontAttributes="Bold"
+                Clicked="BtnCommon_Clicked"/>
+
+            <Button 
+                Text="5"
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                FontAttributes="Bold"
+                Clicked="BtnCommon_Clicked"/>
+
+            <Button 
+                Text="6"
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                FontAttributes="Bold"
+                Clicked="BtnCommon_Clicked"/>
+
+            <Button 
+                Text="-"
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                FontAttributes="Bold"
+                Clicked="BtnOperator_Clicked"/>
+          </StackLayout>
+<!--row Four-->
+         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            
+            <Button
+                Text="1"
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                FontAttributes="Bold"
+                Clicked="BtnCommon_Clicked"/>
+
+            <Button 
+                Text="2"
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                FontAttributes="Bold"
+                Clicked="BtnCommon_Clicked"/>
+
+            <Button
+                Text="3"
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                FontAttributes="Bold"
+                Clicked="BtnCommon_Clicked"/>
+
+            <Button 
+                Text="+"
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                FontAttributes="Bold"
+                Clicked="BtnOperator_Clicked"/>
+            </StackLayout>
+<!--row Five-->
+         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            
+            <Button 
+                Text="+/-"
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="10"
+                FontAttributes="Bold"/>
+
+            <Button 
+                Text="0"
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                FontAttributes="Bold"
+                Clicked="BtnCommon_Clicked"/>
+
+            <Button 
+                Text="."
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                FontAttributes="Bold"
+                Clicked="BtnCommon_Clicked"/>
+
+            <Button 
+                Text="="
+                FontSize="50"
+                FontFamily="GiantFont.otf#GiantFont"
+                Padding="20"
+                VerticalOptions="Start"
+                FontAttributes="Bold"
+                x:Name="BtnEquals"
+                Clicked="BtnEquals_Clicked"/>
+          </StackLayout>
+            
+         </StackLayout>
+    </StackLayout>
+</ContentPage>
