@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -19,19 +20,29 @@ namespace Calculator
         private decimal firstNum;
         private string operatorName;
         private bool isOperatorClicked;
-        
-        // select numbers
+        bool operationExecuted = false;
+        // input numbers
         private void BtnCommon_Clicked(object sender, EventArgs e)
         {
-            var button = sender as Button;
-            if (LblCalc.Text == "0" || isOperatorClicked)
+           var button = sender as Button;
+            if (operationExecuted)
             {
-                isOperatorClicked = false;
+                LblCalc.Text= String.Empty;
                 LblCalc.Text = button.Text;
+                LblResult.Text = String.Empty;
+                operationExecuted = false;
             }
             else
-            {
-                LblCalc.Text += button.Text;
+            { 
+                if (LblCalc.Text == "0" || isOperatorClicked)
+                    {
+                        isOperatorClicked = false;
+                        LblCalc.Text = button.Text;
+                    }
+                    else
+                    {
+                        LblCalc.Text += button.Text;
+                    }
             }
         }
        
@@ -93,11 +104,17 @@ namespace Calculator
         {
             var button = sender as Button;
             isOperatorClicked = true;
-            operatorName= button.Text;
-            firstNum = Convert.ToDecimal(LblCalc.Text);
-            //LblCalc.Text += button.Text;
-
-
+            if (operationExecuted)
+            {
+                firstNum = Convert.ToDecimal(LblResult.Text);
+                operatorName = button.Text;
+                operationExecuted = false;
+            }
+            else
+            {
+                operatorName = button.Text;
+                firstNum = Convert.ToDecimal(LblCalc.Text);
+            }
         }
         
         private void BtnEquals_Clicked(object sender, EventArgs e)
@@ -107,17 +124,19 @@ namespace Calculator
                 decimal secondNum = Convert.ToDecimal(LblCalc.Text);
                 string finalResult = Calculate(firstNum, secondNum).ToString("0.##");
                 LblResult.Text = finalResult;
-                
+                operationExecuted = true;
+
             }
             catch(Exception ex)
             {
                 DisplayAlert("Error", ex.Message, "OK");
             }
         }
-
+        
         public decimal Calculate(decimal firstNum, decimal secondNum)
         {
             decimal result = 0;
+
             if(operatorName=="+")
             {
                 result = firstNum + secondNum;

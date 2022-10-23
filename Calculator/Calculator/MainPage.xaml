@@ -24,6 +24,7 @@
           <StackLayout Orientation ="Vertical">
             <!--Calculation-->
             <Label x:Name="LblCalc"
+               Text="0"
                FontSize="40"
                FontFamily="GiantFont.otf#GiantFont"
                HorizontalOptions="End"
@@ -32,7 +33,6 @@
             </Label>
             <!--Result-->
             <Label x:Name="LblResult"
-               Text="0"
                FontSize="60"
                FontFamily="GiantFont.otf#GiantFont"
                FontAttributes="Bold"
