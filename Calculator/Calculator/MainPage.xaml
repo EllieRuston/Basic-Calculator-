@@ -4,12 +4,25 @@
              x:Class="Calculator.MainPage">
 
     <StackLayout>
+    <!--Title-->
+        <Label x:Name="Title"
+               Text="Calculator"
+               HorizontalOptions="CenterAndExpand"
+               FontFamily="Bugie.ttf#Bugie"
+               FontSize="70"
+               Margin="0,10,0,-30"
+               VerticalOptions="CenterAndExpand"
+               TextColor="#483EB0"
+               FontAttributes="Bold"/>
+        <!--Calcuation area-->
         <Frame BackgroundColor="PaleTurquoise" Opacity="10"
-               Padding="10" 
-               Margin="0,0,0,20"
-               HeightRequest="230">
+               Padding="15" 
+               Margin="10,10,10,10"
+               HeightRequest="230"
+               CornerRadius="20">
             
           <StackLayout Orientation ="Vertical">
+            <!--Calculation-->
             <Label x:Name="LblCalc"
                FontSize="40"
                FontFamily="GiantFont.otf#GiantFont"
@@ -17,7 +30,7 @@
                VerticalOptions="StartAndExpand"
                Padding="0,0,25,0">
             </Label>
-            
+            <!--Result-->
             <Label x:Name="LblResult"
                Text="0"
                FontSize="60"
@@ -29,11 +42,14 @@
             </Label>
           </StackLayout>
         </Frame>
+        
+<!--Buttons-->
 <!--Row One-->
         <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
     
          <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button 
+            <!--Cancel-->
+             <Button 
                 Text="C"
                 FontSize="50"
                 FontFamily="GiantFont.otf#GiantFont"
@@ -41,16 +57,16 @@
                 Padding="20"
                 x:Name="BtnClear"
                 Clicked="BtnClear_Clicked"/>
-            
+            <!--Clear-->
             <Button
-                Text="CE"
+                Text="Del"
                 FontFamily="GiantFont.otf#GiantFont"
                 FontSize="50"
                 FontAttributes="Bold"
                 Padding="20"
-                x:Name="BtnCE"
-                Clicked="BtnCE_Clicked"/>
-                    
+                x:Name="BtnDel"
+                Clicked="BtnDel_Clicked"/>
+            <!--Percentage-->       
             <Button 
                 Text="%"
                 FontFamily="GiantFont.otf#GiantFont"
@@ -58,7 +74,7 @@
                 FontAttributes="Bold"
                 x:Name="BtnPercent"
                 Clicked="BtnPercent_Clicked"/>
-
+            <!--Divide-->
             <Button 
                 Text="/"
                 FontFamily="GiantFont.otf#GiantFont"
@@ -69,7 +85,7 @@
           </StackLayout>
  <!--row two-->
          <StackLayout Orientation="Horizontal" HorizontalOptions="Center"> 
-           
+           <!--7-->
             <Button 
                 Text="7"
                 FontSize="50"
@@ -78,7 +94,7 @@
                 Padding="20"
                 x:Name="Btn7"
                 Clicked="BtnCommon_Clicked"/>
-
+            <!--8-->
             <Button 
                 Text="8"
                 FontSize="50"
@@ -87,7 +103,7 @@
                 Padding="20"
                 x:Name="Btn8"
                 Clicked="BtnCommon_Clicked"/>
-
+            <!--9-->
             <Button
                 Text="9"
                 FontSize="50"
@@ -96,7 +112,7 @@
                 Padding="20"
                 x:Name="Btn9"
                 Clicked="BtnCommon_Clicked"/>
-
+            <!--*-->
             <Button 
                 Text="*"
                 FontFamily="GiantFont.otf#GiantFont"
@@ -108,6 +124,7 @@
 
          <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
 <!--row Three-->
+             <!--4-->
             <Button 
                 Text="4"
                 FontSize="50"
@@ -115,7 +132,7 @@
                 Padding="20"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
-
+            <!--5-->
             <Button 
                 Text="5"
                 FontSize="50"
@@ -123,7 +140,7 @@
                 Padding="20"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
-
+            <!--6-->
             <Button 
                 Text="6"
                 FontSize="50"
@@ -131,7 +148,7 @@
                 Padding="20"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
-
+            <!--'subtract'-->
             <Button 
                 Text="-"
                 FontSize="50"
@@ -142,7 +159,7 @@
           </StackLayout>
 <!--row Four-->
          <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            
+            <!--1-->
             <Button
                 Text="1"
                 FontSize="50"
@@ -150,7 +167,7 @@
                 Padding="20"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
-
+            <!--2-->
             <Button 
                 Text="2"
                 FontSize="50"
@@ -158,7 +175,7 @@
                 Padding="20"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
-
+            <!--3-->
             <Button
                 Text="3"
                 FontSize="50"
@@ -166,7 +183,7 @@
                 Padding="20"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
-
+            <!--+-->
             <Button 
                 Text="+"
                 FontSize="50"
@@ -177,14 +194,14 @@
             </StackLayout>
 <!--row Five-->
          <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            
+            <!--Inactive-->
             <Button 
                 Text="+/-"
                 FontSize="50"
                 FontFamily="GiantFont.otf#GiantFont"
                 Padding="10"
                 FontAttributes="Bold"/>
-
+            <!--0-->
             <Button 
                 Text="0"
                 FontSize="50"
@@ -192,7 +209,7 @@
                 Padding="20"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
-
+            <!--.-->
             <Button 
                 Text="."
                 FontSize="50"
@@ -200,7 +217,7 @@
                 Padding="20"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
-
+            <!--=-->
             <Button 
                 Text="="
                 FontSize="50"
@@ -211,7 +228,16 @@
                 x:Name="BtnEquals"
                 Clicked="BtnEquals_Clicked"/>
           </StackLayout>
-            
+<!--Dark mode Inactive-->   
          </StackLayout>
+        <Label HorizontalOptions="End"
+               Text="Dark Mode"
+               x:Name="DLMode"
+               Margin="0,0,10,0"/>
+        
+        <Switch IsToggled="False"
+                HorizontalOptions="End"
+                VerticalOptions="EndAndExpand"
+                Margin="0,0,5,15"/>
     </StackLayout>
 </ContentPage>

@@ -14,10 +14,13 @@ namespace Calculator
         {
             InitializeComponent();
         }
+        
+        // variables  for calulation
         private decimal firstNum;
         private string operatorName;
         private bool isOperatorClicked;
-
+        
+        // select numbers
         private void BtnCommon_Clicked(object sender, EventArgs e)
         {
             var button = sender as Button;
@@ -41,23 +44,32 @@ namespace Calculator
             firstNum = 0;
         }
 
-        private void BtnCE_Clicked(object sender, EventArgs e)
+        private async void BtnDel_Clicked(object sender, EventArgs e)
         {
-            string number = LblCalc.Text;
-            if (number != "0")
-            { 
-                number = number.Remove(number.Length-1, 1);
-                if (string.IsNullOrEmpty(number))
+            try
+            {
+                string number = LblCalc.Text;
+                if (number != "0")
                 {
-                    LblResult.Text = "0";
-                    isOperatorClicked=!false;
-                }
-                else
-                {
-                    LblCalc.Text = number;
+                    number = number.Remove(number.Length - 1, 1);
+                    if (string.IsNullOrEmpty(number))
+                    {
+                        LblResult.Text = "0";
+                        LblCalc.Text = "";
+                        isOperatorClicked = !false;
+                    }
+                    else
+                    {
+                        LblCalc.Text = number;
+                    }
                 }
             }
-        }
+            catch(Exception ex)
+            {
+                await DisplayAlert("Nothing to delete", ex.Message, "OK");
+            }
+        }   
+            
 
         private async void BtnPercent_Clicked(object sender, EventArgs e)
         {
@@ -87,7 +99,7 @@ namespace Calculator
 
 
         }
-
+        
         private void BtnEquals_Clicked(object sender, EventArgs e)
         {
             try
