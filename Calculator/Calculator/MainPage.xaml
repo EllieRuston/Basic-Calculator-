@@ -2,36 +2,58 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Calculator.MainPage">
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="NumButton">
+                <Setter Property="BackgroundColor" Value="#324444"/>
+                <Setter Property="FontSize" Value="35"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="#a7cec6"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="WidthRequest" Value="80"/>
+                <Setter Property="HeightRequest" Value="80"/>
+                <Setter Property="CornerRadius" Value="50"/>
+                <Setter Property="BorderWidth" Value="3"/>
+                <Setter Property="BorderColor" Value="#a7cec6"/>
+                <Setter Property="Opacity" Value=".7"/>
+            </Style>
+            <Style TargetType="Button" x:Key="OppButton">
+                <Setter Property="TextColor" Value="#a7cec6"/>
+                <Setter Property="FontSize" Value="35"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="WidthRequest" Value="80"/>
+                <Setter Property="HeightRequest" Value="80"/>
+                <Setter Property="CornerRadius" Value="50"/>
+                <Setter Property="BackgroundColor" Value="#4ba493"/>
+                <Setter Property="Opacity" Value=".7"/>
+            </Style>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+  
     <StackLayout Background="#295a51">
         <Label Text="Calculate" TextColor="#a7cec6"
                FontSize="Title" HorizontalTextAlignment="End" Padding="10,10,15,0"/>
         <!--Calcuation area-->
         <Frame BackgroundColor="#324444" Opacity="1"
-               Padding="15,0,15,0" 
-               Margin="10,10,10,10"
-               HeightRequest="230"
-               CornerRadius="20"
+               Padding="15,0,15,0"  Margin="10,10,10,10"
+               HeightRequest="230" CornerRadius="20"
                BorderColor="#a7cec6" HasShadow="True">
-            
             
           <StackLayout Orientation ="Vertical">
             <!--Calculation-->
             <Label x:Name="LblCalc"
-               Text="0"
-               TextColor="#a7cec6"
-               FontSize="40"
-               HorizontalOptions="EndAndExpand"
+               Text="0" TextColor="#a7cec6"
+               FontSize="40" HorizontalOptions="EndAndExpand"
                VerticalOptions="StartAndExpand"
                Padding="0,0,25,0">
             </Label>
             <!--Result-->
             <Label x:Name="LblResult"
                FontSize="60" TextColor="#a7cec6"
-               FontAttributes="Bold"
-               HorizontalOptions="End"
-               VerticalOptions="EndAndExpand"
-               Padding="0,0,25,0">
+               FontAttributes="Bold" HorizontalOptions="End"
+               VerticalOptions="EndAndExpand" Padding="0,0,25,0">
             </Label>
           </StackLayout>
         </Frame>
@@ -39,195 +61,74 @@
 <!--Buttons-->
 <!--Row One-->
         <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
-    
-         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <!--Cancel-->
-             <Button 
-                Text="C" TextColor="#a7cec6"
-                FontSize="35"
-                FontAttributes="Bold"
-                WidthRequest="80" HeightRequest="80"
-                CornerRadius="50" Margin="5"
-                BackgroundColor="#4ba493"
-                Opacity=".7"
-                x:Name="BtnClear"
-                Clicked="BtnClear_Clicked"/>
+             <Button Text="C" Clicked="BtnClear_Clicked"
+                Style="{StaticResource OppButton}"/>
             <!--Clear-->
-                <Button TextColor="#a7cec6"
-                Text="Del"
-                FontSize="30"
-                FontAttributes="Bold"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#4ba493"
-                Opacity=".7"
-                x:Name="BtnDel"
-                Clicked="BtnDel_Clicked"
-                />
+                <Button Clicked="BtnDel_Clicked"
+                Text="Del" Style="{StaticResource OppButton}"/>
             <!--Percentage-->       
-            <Button 
-                Text="%" TextColor="#a7cec6"
-                FontSize="35"
-                FontAttributes="Bold"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#4ba493"
-                Opacity=".7"
-                x:Name="BtnPercent"
-                Clicked="BtnPercent_Clicked"/>
+            <Button Text="%" Clicked="BtnPercent_Clicked"
+                Style="{StaticResource OppButton}"/>
             <!--Divide-->
-            <Button 
-                Text="/" TextColor="#a7cec6"
-                FontSize="35"
-                FontAttributes="Bold"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#4ba493"
-                Opacity=".7"
-                x:Name="BtnDiv"
-                Clicked="BtnOperator_Clicked"/>
+            <Button Text="/" Clicked="BtnOperator_Clicked"
+               Style="{StaticResource OppButton}"/>
           </StackLayout>
  <!--row two-->
-         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"> 
+         <StackLayout Orientation="Horizontal" HorizontalOptions="Center"> 
            <!--7-->
-            <Button 
-                Text="7" TextColor="#a7cec6"
-                FontSize="35"
-                FontAttributes="Bold"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50" 
-                BackgroundColor="#324444"
-                 BorderWidth="3" BorderColor="#a7cec6"
-                Opacity=".7"
-                x:Name="Btn7"
-                Clicked="BtnCommon_Clicked"/>
+            <Button Text="7" Clicked="BtnCommon_Clicked"
+                    Style="{StaticResource NumButton}" />
             <!--8-->
-            <Button 
-                Text="8" TextColor="#a7cec6"
-                BorderWidth="3" BorderColor="#a7cec6"
-                FontSize="35"
-                FontAttributes="Bold"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#324444"
-                Opacity=".7"
-                x:Name="Btn8"
-                Clicked="BtnCommon_Clicked"/>
+            <Button Text="8"  Clicked="BtnCommon_Clicked"
+                    Style="{StaticResource NumButton}"/>
             <!--9-->
-            <Button
-                Text="9" TextColor="#a7cec6"
-                BorderWidth="3" BorderColor="#a7cec6"
-                FontSize="35"
-                FontAttributes="Bold"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#324444"
-                Opacity=".7"
-                x:Name="Btn9"
-                Clicked="BtnCommon_Clicked"/>
+            <Button Text="9" Clicked="BtnCommon_Clicked"
+                    Style="{StaticResource NumButton}"/>
             <!--*-->
             <Button 
-                Text="*" TextColor="#a7cec6"
-                FontSize="35"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#4ba493"
-                Opacity=".7"
-                FontAttributes="Bold"
-                Clicked="BtnOperator_Clicked"/>
+                Text="*" Clicked="BtnOperator_Clicked"
+                Style="{StaticResource OppButton}"/>
           </StackLayout>
 
-         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
 <!--row Three-->
-             <!--4-->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <!--4-->
             <Button 
-                Text="4" TextColor="#a7cec6"
-                FontSize="35"
-                BorderWidth="3" BorderColor="#a7cec6"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#324444"
-                Opacity=".7"
-                FontAttributes="Bold"
+                Text="4" Style="{StaticResource NumButton}"
                 Clicked="BtnCommon_Clicked"/>
             <!--5-->
             <Button 
-                Text="5" TextColor="#a7cec6"
-                FontSize="35"
-                BorderWidth="3" BorderColor="#a7cec6"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#324444"
-                Opacity=".7"
-                FontAttributes="Bold"
-                Clicked="BtnCommon_Clicked"/>
+                Text="5" Clicked="BtnCommon_Clicked"
+                Style="{StaticResource NumButton}"/>
             <!--6-->
             <Button 
-                Text="6" TextColor="#a7cec6"
-                FontSize="35"
-                BorderWidth="3" BorderColor="#a7cec6"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#324444"
-                Opacity=".7"
-                FontAttributes="Bold"
-                Clicked="BtnCommon_Clicked"/>
+                Text="6" Clicked="BtnCommon_Clicked"
+                Style="{StaticResource NumButton}"/>
             <!--'subtract'-->
             <Button 
-                Text="-" TextColor="#a7cec6"
-                FontSize="35"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#4ba493"
-                Opacity=".7"
-                FontAttributes="Bold"
-                Clicked="BtnOperator_Clicked"/>
+                Text="-" Clicked="BtnOperator_Clicked"
+                Style="{StaticResource OppButton}"/>
           </StackLayout>
 <!--row Four-->
          <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <!--1-->
             <Button
-                Text="1" TextColor="#a7cec6"
-                FontSize="35"
-                BorderWidth="3" BorderColor="#a7cec6"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#324444"
-                Opacity=".7"
-                FontAttributes="Bold"
-                Clicked="BtnCommon_Clicked"/>
+                Text="1" Clicked="BtnCommon_Clicked"
+                Style="{StaticResource NumButton}"/>
             <!--2-->
             <Button 
-                Text="2" TextColor="#a7cec6"
-                FontSize="35"
-                BorderWidth="3" BorderColor="#a7cec6"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#324444"
-                Opacity=".7"
-                FontAttributes="Bold"
-                Clicked="BtnCommon_Clicked"/>
+                Text="2" Clicked="BtnCommon_Clicked"
+                Style="{StaticResource NumButton}"/>
             <!--3-->
             <Button
-                Text="3" TextColor="#a7cec6"
-                FontSize="35"
-                BorderWidth="3" BorderColor="#a7cec6"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#324444"
-                Opacity=".7"
-                FontAttributes="Bold"
-                Clicked="BtnCommon_Clicked"/>
+                Text="3" Clicked="BtnCommon_Clicked"
+                Style="{StaticResource NumButton}"/>
             <!--+-->
             <Button 
-                Text="+" TextColor="#a7cec6"
-                FontSize="35"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#4ba493"
-                Opacity=".7"
-                FontAttributes="Bold"
-                Clicked="BtnOperator_Clicked"/>
+                Text="+" Clicked="BtnOperator_Clicked"
+                Style="{StaticResource OppButton}"/>
             </StackLayout>
 <!--row Five-->
          <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
@@ -242,38 +143,16 @@
                 FontAttributes="Bold"/>
             <!--0-->
             <Button 
-                Text="0" TextColor="#a7cec6"
-                FontSize="35"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#324444"
-                BorderWidth="3" BorderColor="#a7cec6"
-                Opacity=".7"
-                FontAttributes="Bold"
-                Clicked="BtnCommon_Clicked"/>
+                Text="0" Clicked="BtnCommon_Clicked"
+                Style="{StaticResource NumButton}"/>
             <!--.-->
             <Button 
-                Text="." TextColor="#a7cec6"
-                FontSize="35"
-                BorderWidth="3" BorderColor="#a7cec6"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#324444"
-                Opacity=".7"
-                FontAttributes="Bold"
-                Clicked="BtnCommon_Clicked"/>
+                Text="." Clicked="BtnCommon_Clicked"
+                Style="{StaticResource NumButton}"/>
             <!--=-->
             <Button 
-                Text="=" TextColor="#a7cec6"
-                FontSize="35"
-                Margin="5" WidthRequest="80" HeightRequest="80"
-                CornerRadius="50"
-                BackgroundColor="#4ba493"
-                Opacity=".7"
-                VerticalOptions="Start"
-                FontAttributes="Bold"
-                x:Name="BtnEquals"
-                Clicked="BtnEquals_Clicked"/>
+                Text="=" Clicked="BtnEquals_Clicked"
+                Style="{StaticResource OppButton}"/>
           </StackLayout>
 <!--Dark mode Inactive-->   
          </StackLayout>

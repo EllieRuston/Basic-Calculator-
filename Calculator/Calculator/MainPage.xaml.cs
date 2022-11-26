@@ -19,26 +19,13 @@ namespace Calculator
         }
         CalcQuickBase calcQuick = new CalcQuickBase();
 
-        public void FastMath()
-        {
-            string forumla = LblCalc.Text;
-            string result = calcQuick.ParseAndCompute (forumla);
-            LblResult.Text = result;
-           
-        }
-
-        // variables  for calulation
-        
-        private string operatorName;
         //private bool isOperatorClicked;
         bool calculationsExecuted = false;
         // input numbers
         private void BtnCommon_Clicked(object sender, EventArgs e)
         {
             var button = sender as Button;
-                
-                
-
+         
             if (calculationsExecuted)
             {
                 LblCalc.Text = String.Empty;
@@ -98,7 +85,7 @@ namespace Calculator
                 if (number != "0")
                 {
                     decimal percentValue= Convert.ToDecimal(number);
-                    string result = (percentValue / 100).ToString("0.##");
+                    string result = "% "+ (percentValue / 100).ToString("0.##");
                     LblResult.Text = result;
                 }
             }
@@ -114,30 +101,37 @@ namespace Calculator
            
             if (LblCalc.Text != "0" )
             {
-                if (LblResult.Text == "" )
+                if (calculationsExecuted)
                 {
-                    LblCalc.Text += button.Text;
-                }
-                else 
-                {   
                     LblCalc.Text = String.Empty;
                     LblCalc.Text = (LblResult.Text + button.Text);
                     LblResult.Text = String.Empty;
+                    calculationsExecuted = false;
                 }
-            }  
-                
+                else 
+                {   
+                    LblCalc.Text += button.Text;
+                }
+            } 
             else
             {
                 LblCalc.Text += button.Text; 
             }
-        } 
-        
+        }
+        // Calculation
+        public void FastMath()
+        {
+            string forumla = LblCalc.Text;
+            string result = calcQuick.ParseAndCompute(forumla);
+            LblResult.Text = result;
+            calculationsExecuted = true;
+        }
+
         private void BtnEquals_Clicked(object sender, EventArgs e)
         {
             try
             {
                 FastMath();
-
             }
             catch(Exception ex)
             {
@@ -145,28 +139,6 @@ namespace Calculator
             }
         }
         
-        public decimal Calculate(decimal firstNum, decimal secondNum)
-        {
-            decimal result = 0;
-
-            if(operatorName=="+")
-            {
-                result = firstNum + secondNum;
-            }
-            else if (operatorName == "-")
-            {
-                result = firstNum - secondNum;
-            }
-            else if (operatorName == "*")
-            {
-                result = firstNum * secondNum;
-            }
-            else if (operatorName == "/")
-            {
-                result = firstNum / secondNum;
-            }
-            return result;
-        }
     }
 }
 
