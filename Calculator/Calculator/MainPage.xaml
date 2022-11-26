@@ -2,39 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Calculator.MainPage">
-    
-    <StackLayout Style="{DynamicResource ContainerBackgroundColor}">
-    <!--Title-->
-        <Label x:Name="Header"
-               Text="Calculator"
-               HorizontalOptions="CenterAndExpand"
-               FontFamily="Bugie.ttf#Bugie"
-               FontSize="70"
-               Margin="0,10,0,-30"
-               VerticalOptions="CenterAndExpand"
-               TextColor="#483EB0"
-               FontAttributes="Bold"/>
+
+    <StackLayout Background="#295a51">
+        <Label Text="Calculate" TextColor="#a7cec6"
+               FontSize="Title" HorizontalTextAlignment="End" Padding="10,10,15,0"/>
         <!--Calcuation area-->
-        <Frame BackgroundColor="PaleTurquoise" Opacity="10"
-               Padding="15" 
+        <Frame BackgroundColor="#324444" Opacity="1"
+               Padding="15,0,15,0" 
                Margin="10,10,10,10"
                HeightRequest="230"
-               CornerRadius="20">
+               CornerRadius="20"
+               BorderColor="#a7cec6" HasShadow="True">
+            
             
           <StackLayout Orientation ="Vertical">
             <!--Calculation-->
             <Label x:Name="LblCalc"
                Text="0"
+               TextColor="#a7cec6"
                FontSize="40"
-               FontFamily="GiantFont.otf#GiantFont"
                HorizontalOptions="EndAndExpand"
                VerticalOptions="StartAndExpand"
                Padding="0,0,25,0">
             </Label>
             <!--Result-->
             <Label x:Name="LblResult"
-               FontSize="60"
-               FontFamily="GiantFont.otf#GiantFont"
+               FontSize="60" TextColor="#a7cec6"
                FontAttributes="Bold"
                HorizontalOptions="End"
                VerticalOptions="EndAndExpand"
@@ -50,74 +43,96 @@
          <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <!--Cancel-->
              <Button 
-                Text="C"
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
+                Text="C" TextColor="#a7cec6"
+                FontSize="35"
                 FontAttributes="Bold"
-                Padding="20"
+                WidthRequest="80" HeightRequest="80"
+                CornerRadius="50" Margin="5"
+                BackgroundColor="#4ba493"
+                Opacity=".7"
                 x:Name="BtnClear"
                 Clicked="BtnClear_Clicked"/>
             <!--Clear-->
-            <Button
+                <Button TextColor="#a7cec6"
                 Text="Del"
-                FontFamily="GiantFont.otf#GiantFont"
-                FontSize="50"
+                FontSize="30"
                 FontAttributes="Bold"
-                Padding="20"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#4ba493"
+                Opacity=".7"
                 x:Name="BtnDel"
-                Clicked="BtnDel_Clicked"/>
+                Clicked="BtnDel_Clicked"
+                />
             <!--Percentage-->       
             <Button 
-                Text="%"
-                FontFamily="GiantFont.otf#GiantFont"
-                FontSize="50"
+                Text="%" TextColor="#a7cec6"
+                FontSize="35"
                 FontAttributes="Bold"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#4ba493"
+                Opacity=".7"
                 x:Name="BtnPercent"
                 Clicked="BtnPercent_Clicked"/>
             <!--Divide-->
             <Button 
-                Text="/"
-                FontFamily="GiantFont.otf#GiantFont"
-                FontSize="50"
+                Text="/" TextColor="#a7cec6"
+                FontSize="35"
                 FontAttributes="Bold"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#4ba493"
+                Opacity=".7"
                 x:Name="BtnDiv"
                 Clicked="BtnOperator_Clicked"/>
           </StackLayout>
  <!--row two-->
-         <StackLayout Orientation="Horizontal" HorizontalOptions="Center"> 
+         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"> 
            <!--7-->
             <Button 
-                Text="7"
-                FontSize="50"
+                Text="7" TextColor="#a7cec6"
+                FontSize="35"
                 FontAttributes="Bold"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50" 
+                BackgroundColor="#324444"
+                 BorderWidth="3" BorderColor="#a7cec6"
+                Opacity=".7"
                 x:Name="Btn7"
                 Clicked="BtnCommon_Clicked"/>
             <!--8-->
             <Button 
-                Text="8"
-                FontSize="50"
+                Text="8" TextColor="#a7cec6"
+                BorderWidth="3" BorderColor="#a7cec6"
+                FontSize="35"
                 FontAttributes="Bold"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#324444"
+                Opacity=".7"
                 x:Name="Btn8"
                 Clicked="BtnCommon_Clicked"/>
             <!--9-->
             <Button
-                Text="9"
-                FontSize="50"
+                Text="9" TextColor="#a7cec6"
+                BorderWidth="3" BorderColor="#a7cec6"
+                FontSize="35"
                 FontAttributes="Bold"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#324444"
+                Opacity=".7"
                 x:Name="Btn9"
                 Clicked="BtnCommon_Clicked"/>
             <!--*-->
             <Button 
-                Text="*"
-                FontFamily="GiantFont.otf#GiantFont"
-                FontSize="50"
-                Padding="20"
+                Text="*" TextColor="#a7cec6"
+                FontSize="35"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#4ba493"
+                Opacity=".7"
                 FontAttributes="Bold"
                 Clicked="BtnOperator_Clicked"/>
           </StackLayout>
@@ -126,34 +141,45 @@
 <!--row Three-->
              <!--4-->
             <Button 
-                Text="4"
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Text="4" TextColor="#a7cec6"
+                FontSize="35"
+                BorderWidth="3" BorderColor="#a7cec6"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#324444"
+                Opacity=".7"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
             <!--5-->
             <Button 
-                Text="5"
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Text="5" TextColor="#a7cec6"
+                FontSize="35"
+                BorderWidth="3" BorderColor="#a7cec6"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#324444"
+                Opacity=".7"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
             <!--6-->
             <Button 
-                Text="6"
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Text="6" TextColor="#a7cec6"
+                FontSize="35"
+                BorderWidth="3" BorderColor="#a7cec6"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#324444"
+                Opacity=".7"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
             <!--'subtract'-->
             <Button 
-                Text="-"
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Text="-" TextColor="#a7cec6"
+                FontSize="35"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#4ba493"
+                Opacity=".7"
                 FontAttributes="Bold"
                 Clicked="BtnOperator_Clicked"/>
           </StackLayout>
@@ -161,34 +187,45 @@
          <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <!--1-->
             <Button
-                Text="1"
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Text="1" TextColor="#a7cec6"
+                FontSize="35"
+                BorderWidth="3" BorderColor="#a7cec6"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#324444"
+                Opacity=".7"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
             <!--2-->
             <Button 
-                Text="2"
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Text="2" TextColor="#a7cec6"
+                FontSize="35"
+                BorderWidth="3" BorderColor="#a7cec6"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#324444"
+                Opacity=".7"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
             <!--3-->
             <Button
-                Text="3"
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Text="3" TextColor="#a7cec6"
+                FontSize="35"
+                BorderWidth="3" BorderColor="#a7cec6"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#324444"
+                Opacity=".7"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
             <!--+-->
             <Button 
-                Text="+"
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Text="+" TextColor="#a7cec6"
+                FontSize="35"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#4ba493"
+                Opacity=".7"
                 FontAttributes="Bold"
                 Clicked="BtnOperator_Clicked"/>
             </StackLayout>
@@ -196,33 +233,43 @@
          <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
             <!--Inactive-->
             <Button 
-                Text="+/-"
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="10"
+                Text="+/-" TextColor="#a7cec6"
+                FontSize="35"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#324444"
+                Opacity=".7"
                 FontAttributes="Bold"/>
             <!--0-->
             <Button 
-                Text="0"
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Text="0" TextColor="#a7cec6"
+                FontSize="35"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#324444"
+                BorderWidth="3" BorderColor="#a7cec6"
+                Opacity=".7"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
             <!--.-->
             <Button 
-                Text="."
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Text="." TextColor="#a7cec6"
+                FontSize="35"
+                BorderWidth="3" BorderColor="#a7cec6"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#324444"
+                Opacity=".7"
                 FontAttributes="Bold"
                 Clicked="BtnCommon_Clicked"/>
             <!--=-->
             <Button 
-                Text="="
-                FontSize="50"
-                FontFamily="GiantFont.otf#GiantFont"
-                Padding="20"
+                Text="=" TextColor="#a7cec6"
+                FontSize="35"
+                Margin="5" WidthRequest="80" HeightRequest="80"
+                CornerRadius="50"
+                BackgroundColor="#4ba493"
+                Opacity=".7"
                 VerticalOptions="Start"
                 FontAttributes="Bold"
                 x:Name="BtnEquals"
@@ -232,6 +279,7 @@
          </StackLayout>
         <Label HorizontalOptions="End"
                Text="Dark Mode"
+               TextColor="#a7cec6"
                x:Name="DLMode"
                Margin="0,0,10,0"/>
         
