@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-[assembly: ExportFont("GiantFont.otf")]
+[assembly: ExportFont("Roundie.otf")]
 
 namespace Calculator
 {

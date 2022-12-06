@@ -3,6 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Calculator.App">
     <Application.Resources>
+        <!--Light colours-->
+        <Color x:Key="BackgroundLight">#a4d5cb</Color>
+        <Color x:Key="TextLight">#324444</Color>
 
+        <!--Dark colours-->
+        <Color x:Key="BackgroundDark">#324444</Color>
+        <Color x:Key="TextDark">#a4d5cb</Color>
+        
+        <!--Styles-->
+        <Style x:Key="ContainerBackgroundColor"
+               TargetType="StackLayout">
+            <Setter Property="BackgroundColor"
+                    Value="{AppThemeBinding Dark={DynamicResource BackgroundDark}, Light={DynamicResource BackgroundLight}}"/>
+        </Style>
+
+        <Style x:Key="TextColor"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Dark={DynamicResource TextDark}, Light={DynamicResource TextLight}}"/>
+
+        </Style>
+        
     </Application.Resources>
 </Application>
